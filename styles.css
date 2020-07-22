@@ -79,11 +79,11 @@ body {
     background-color: #37af65;
     color: white;
     padding: 12px;
-    padding-bottom: 24px;
+    padding-bottom: 28px;
     width: 100%;
     cursor: pointer;
     border-radius: 0;
-    font: 400 13.3333px Arial;
+    font-size:15px;
 }
 .item__radio{
     margin: 10px 0;
