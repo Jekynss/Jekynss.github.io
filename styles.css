@@ -86,5 +86,15 @@ body {
     font-size:15px;
 }
 .item__radio{
+    width: 18px;
+    height: 18px;
     margin: 10px 0;
+}
+.radio-span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.radio-span input{
+    margin-right: 5px;
 }

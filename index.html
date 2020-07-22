@@ -15,7 +15,7 @@
             <label for="email">Email</label>
             <input class = "item__input main__form__item" type="text" id="email" name="email" placeholder="Enter your Email"/><br>
             <label for="age">Age(optional)</label>
-            <input class = "item__input main__form__item" type="text" id="age" name="age" placeholder="Age"/><br>
+            <input class = "item__input main__form__item" type="number" id="age" name="age" placeholder="Age"/><br>
           </section>
           <section class="main__form__roles flexable">
             <label for="roles">Which option best describes your current role?</label>
@@ -30,15 +30,15 @@
           </section>
           <section class="main__form__recomends flexable">
             <span>Would you recommend freeCodeCamp to a friend?</span>
-            <span>
-              <input class="item__radio" type="radio" id="definitely" name="recommend" value="definitely">
+            <span class="radio-span">
+              <input class="item__radio" checked="true" type="radio" id="definitely" name="recommend" value="definitely">
               <label for="definitely">Definitely</label><br>
             </span>
-            <span>
+            <span class="radio-span">
             <input class="item__radio" type="radio" id="maybe" name="recommend" value="maybe">
             <label for="maybe">Maybe</label><br>
             </span>
-            <span>
+            <span class="radio-span">
             <input class="item__radio" type="radio" id="not-sure" name="recommend" value="not-sure">
             <label for="not-sure">Not sure</label>
             </span><br>
