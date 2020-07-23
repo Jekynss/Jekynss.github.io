@@ -9,12 +9,6 @@
     margin-right: 0 !important;
   }
 }
-​ body {
-  margin: 0 auto;
-  background-color: #c5a0ef;
-  background: url(https://www.messy.fm/static/media/people.e4d757e8.svg) right bottom no-repeat, url(https://www.messy.fm/static/media/edit.af3e0bfb.svg) no-repeat;
-}
-
 .topic {
   margin: 0 auto;
   text-align: center;
@@ -32,27 +26,12 @@
   display: flex;
 }
 
-.plans__plan, .plans__plan_third, .plans__plan_second, .plans__plan_first {
-  height: 725px;
-  width: 480px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
-  border-radius: 10px;
-  margin-right: 30px;
-  background: #fff;
-  transition: 0.3s;
-}
-
-.plan__option__section__line,
-.plan__option__section__options {
-  margin-top: 35px;
-}
-
 .plan__option__section__options {
   padding-inline-start: 0px;
 }
 
 .plan__option__section__line {
-  width: 100%;
+  width: 70%;
   height: 5px;
   margin: 20px auto;
   border-bottom-right-radius: 25px;
@@ -61,8 +40,20 @@
   border-top-right-radius: 25px;
 }
 
+.plan__options-active__p {
+  font-size: 13px;
+}
+
 .plan__name {
   padding: 5px 0;
+}
+
+.main {
+  background: url(https://www.messy.fm/static/media/people.e4d757e8.svg) right bottom no-repeat, url(https://www.messy.fm/static/media/edit.af3e0bfb.svg) no-repeat;
+}
+
+.body {
+  background-color: #e5ebfd;
 }
 
 .plan__name-p {
@@ -109,6 +100,15 @@
   margin: 0 auto;
   justify-content: space-around;
 }
+.plans__plan, .plans__plan_third, .plans__plan_second, .plans__plan_first {
+  height: 750px;
+  width: 480px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  margin-right: 30px;
+  background: #fff;
+  transition: 0.3s;
+}
 .plans__plan_first .plan__name {
   background-color: #5c8cd7;
 }
@@ -117,6 +117,9 @@
 }
 .plans__plan_first .plan__button .plan__button-link {
   background-color: #5c8cd7;
+}
+.plans__plan_first .plan__option__section {
+  margin-top: 50px;
 }
 .plans__plan_second .plan__name {
   background-color: #c5a0ef;
@@ -153,12 +156,10 @@
 }
 .plan__options-active:before {
   content: "✓";
-  font-size: 30px;
+  font-size: 15px;
   display: block;
   color: blue;
-  width: 25px;
-  height: 25px;
-  margin-left: -35px;
+  margin-left: -15px;
 }
 .plan__options-active__p {
   margin: 0 0;
@@ -184,6 +185,13 @@
   color: white;
   font-family: arial, sans-serif;
   border-radius: 12px;
+}
+
+.options-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 65%;
 }
 
 /*# sourceMappingURL=styles.css.map */
