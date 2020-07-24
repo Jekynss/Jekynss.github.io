@@ -42,14 +42,16 @@
   font-weight: 100;
   font-family: $font-stack;
   line-height: 2.5;
+  position: relative;
 
   &:before {
     content: "✓";
-    font-size: 15px;
+    line-height: 1.95;
+    font-size: 20px;
     display: block;
     color: $mark-color;
-    //position: absolute;
-    margin-left: -15px;
+    position: absolute;
+    margin-left: -25px;
   }
 
   &__p {

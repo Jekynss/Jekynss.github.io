@@ -45,7 +45,7 @@
   justify-content: space-around;
 }
 .plans__plan, .plans__plan_third, .plans__plan_second, .plans__plan_first {
-  height: 750px;
+  height: 780px;
   width: 480px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
   border-radius: 10px;
@@ -171,13 +171,16 @@
   font-weight: 100;
   font-family: arial, sans-serif;
   line-height: 2.5;
+  position: relative;
 }
 .plan__options-active:before {
   content: "✓";
-  font-size: 15px;
+  line-height: 1.95;
+  font-size: 20px;
   display: block;
   color: blue;
-  margin-left: -15px;
+  position: absolute;
+  margin-left: -25px;
 }
 .plan__options-active__p {
   margin: 0 0;
