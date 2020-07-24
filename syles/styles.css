@@ -26,10 +26,14 @@
   display: flex;
 }
 
+.plan__option__section {
+  width: 70%;
+  margin: 10px auto;
+  text-align: start;
+}
 .plan__option__section__options {
   padding-inline-start: 0px;
 }
-
 .plan__option__section__line {
   width: 70%;
   height: 5px;
@@ -40,12 +44,15 @@
   border-top-right-radius: 25px;
 }
 
-.plan__options-active__p {
-  font-size: 13px;
-}
-
 .plan__name {
   padding: 5px 0;
+}
+.plan__name_p {
+  font-size: 18px;
+  font-family: Ariel, sans-serif;
+  font-style: normal;
+  color: white;
+  text-transform: uppercase;
 }
 
 .main {
@@ -56,20 +63,11 @@
   background-color: #e5ebfd;
 }
 
-.plan__name-p {
-  font-size: 18px;
-  font-family: Ariel, sans-serif;
-  font-style: normal;
-  color: white;
-  text-transform: uppercase;
-}
-
 .plan__button {
   width: 204px;
   height: 50px;
   margin: 10 auto;
 }
-
 .plan__button-link {
   color: white;
   text-decoration: none;
@@ -140,12 +138,6 @@
   background-color: #a58dd8;
 }
 
-.plan__option__section {
-  width: 70%;
-  margin: 10px auto;
-  text-align: start;
-}
-
 .plan__options-active {
   list-style: none;
   display: flex;
@@ -163,6 +155,7 @@
 }
 .plan__options-active__p {
   margin: 0 0;
+  font-size: 13px;
 }
 
 .plan__buttons__section {

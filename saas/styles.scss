@@ -13,11 +13,9 @@ $background_color: #e5ebfd;
 
 @media only screen and (max-width: 1100px) {
   .plans__plan {
-    margin-right: 0!important;
+    margin-right: 0 !important;
   }
 }
-
-
 
 .topic {
   margin: 0 auto;
@@ -36,31 +34,40 @@ $background_color: #e5ebfd;
   display: flex;
 }
 
-
-.plan__option__section__options{
-  padding-inline-start: 0px;
-}
-
-.plan__option__section__line {
+.plan__option__section {
   width: 70%;
-  height: 5px;
-  margin: 20px auto;
-  border-bottom-right-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
+  margin: 10px auto;
+  text-align: start;
 
-.plan__options-active__p{
-  font-size: 13px;
+  &__options {
+    padding-inline-start: 0px;
+  }
+
+  &__line {
+    width: 70%;
+    height: 5px;
+    margin: 20px auto;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
 }
 
 .plan__name {
   padding: 5px 0;
+
+  &_p {
+    font-size: 18px;
+    font-family: Ariel, sans-serif;
+    font-style: normal;
+    color: white;
+    text-transform: uppercase;
+  }
 }
 
 .main {
-    background: url(https://www.messy.fm/static/media/people.e4d757e8.svg) right
+  background: url(https://www.messy.fm/static/media/people.e4d757e8.svg) right
       bottom no-repeat,
     url(https://www.messy.fm/static/media/edit.af3e0bfb.svg) no-repeat;
 }
@@ -69,37 +76,29 @@ $background_color: #e5ebfd;
   background-color: $background_color;
 }
 
-.plan__name-p {
-  font-size: 18px;
-  font-family: Ariel, sans-serif;
-  font-style: normal;
-  color: white;
-  text-transform: uppercase;
-}
-
 .plan__button {
   width: 204px;
   height: 50px;
 
   margin: 10 auto;
-}
 
-.plan__button-link {
-  color: white;
-  text-decoration: none;
-  width: 144px;
-  border-radius: 5px;
-  font-family: $font-stack;
-  font-size: 15px;
-  padding-top: 16px;
-  padding-bottom: 15px;
-  display: block;
-  padding-right: 30px;
-  padding-left: 30px;
-  position: absolute;
-  z-index: 1;
-  overflow: hidden;
-  transition: 0.2s;
+  &-link {
+    color: white;
+    text-decoration: none;
+    width: 144px;
+    border-radius: 5px;
+    font-family: $font-stack;
+    font-size: 15px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    display: block;
+    padding-right: 30px;
+    padding-left: 30px;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.2s;
+  }
 }
 
 .plan__price-p {
@@ -138,8 +137,8 @@ $background_color: #e5ebfd;
           background-color: $first_block_color;
         }
       }
-      .plan__option__section{
-        margin-top:50px;
+      .plan__option__section {
+        margin-top: 50px;
       }
     }
     &_second {
@@ -172,11 +171,6 @@ $background_color: #e5ebfd;
     }
   }
 }
-.plan__option__section{
-  width: 70%;
-  margin: 10px auto;
-  text-align: start;
-}
 
 .plan__options-active {
   list-style: none;
@@ -186,8 +180,8 @@ $background_color: #e5ebfd;
   font-family: $font-stack;
   line-height: 2.5;
 
-  &:before{
-    content: '✓';
+  &:before {
+    content: "✓";
     font-size: 15px;
     display: block;
     color: blue;
@@ -195,25 +189,26 @@ $background_color: #e5ebfd;
     margin-left: -15px;
   }
 
-  &__p{
+  &__p {
     margin: 0 0;
+    font-size: 13px;
   }
 }
 
-.plan__buttons__section{
+.plan__buttons__section {
   display: flex;
-  &__wrapper{
+  &__wrapper {
     display: flex;
     flex-direction: row;
     margin: 30 auto;
   }
-  &__button{
+  &__button {
     color: black;
     margin: 0 10px;
     width: 80px;
     height: 30px;
     line-height: 30px;
-    &_active{
+    &_active {
       @extend .plan__buttons__section__button;
       background-color: $first_block_color;
       color: white;
@@ -222,7 +217,7 @@ $background_color: #e5ebfd;
     }
   }
 }
-.options-buttons-wrapper{
+.options-buttons-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
