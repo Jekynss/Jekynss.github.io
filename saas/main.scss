@@ -1,0 +1,71 @@
+@import "./components/variables.scss";
+@import "./components/mixins.scss";
+@import "./components/buttons.scss";
+@import "./pages/cards.scss";
+
+.topic {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.topic__head__p {
+  font-size: 46px;
+  font-family: $font-header;
+  color: $topic-text-color;
+}
+
+.block3__plans {
+  text-align: center;
+  margin-top: 63px;
+  display: flex;
+}
+
+.main {
+  background: url(https://www.messy.fm/static/media/people.e4d757e8.svg) right
+      bottom no-repeat,
+    url(https://www.messy.fm/static/media/edit.af3e0bfb.svg) no-repeat;
+}
+
+.body {
+  background-color: $background_color;
+}
+
+.plan__price-p {
+  font-size: 35px;
+  font-family: $font-stack;
+}
+
+.plan__options-active {
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  font-weight: 100;
+  font-family: $font-stack;
+  line-height: 2.5;
+
+  &:before {
+    content: "✓";
+    font-size: 15px;
+    display: block;
+    color: $mark-color;
+    //position: absolute;
+    margin-left: -15px;
+  }
+
+  &__p {
+    margin: 0 0;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 1560px) {
+  .plans__plan {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .plans__plan {
+    margin-right: 0 !important;
+  }
+}

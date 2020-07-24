@@ -1,0 +1,129 @@
+.plan__price-p {
+  font-size: 35px;
+  font-family: $font-stack;
+}
+
+.plans {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+  }
+
+  &__plan {
+    height: 750px;
+    width: 480px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+    margin-right: 30px;
+    background: $plans_background;
+    transition: 0.3s;
+
+    &_first {
+      @extend .plans__plan;
+      .plan__name {
+        background-color: $first_block_color;
+      }
+      .plan__option__section__line {
+        background-color: $first_block_color;
+      }
+      .plan__button {
+        .plan__button-link {
+          background-color: $first_block_color;
+        }
+      }
+      .plan__option__section {
+        margin-top: 50px;
+      }
+    }
+    &_second {
+      @extend .plans__plan;
+      .plan__name {
+        background-color: $second_block_color;
+      }
+      .plan__option__section__line {
+        background-color: $second_block_color;
+      }
+      .plan__button {
+        .plan__button-link {
+          background-color: $second_block_color;
+        }
+      }
+    }
+    &_third {
+      @extend .plans__plan;
+      .plan__name {
+        background-color: $third_block_color;
+      }
+      .plan__option__section__line {
+        background-color: $third_block_color;
+      }
+      .plan__button {
+        .plan__button-link {
+          background-color: $third_block_color;
+        }
+      }
+    }
+  }
+}
+
+.plan {
+  &__option__section{
+    width: 70%;
+    margin: 10px auto;
+    text-align: start;
+
+    &__options {
+      padding-inline-start: 0px;
+    }
+
+    &__line {
+      width: 70%;
+      height: 5px;
+      margin: 20px auto;
+      border-bottom-right-radius: 25px;
+      border-bottom-left-radius: 25px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+  }
+
+  &__name {
+    padding: 5px 0;
+
+    &_p {
+      font-size: 18px;
+      font-family: Ariel, sans-serif;
+      font-style: normal;
+      color: $white-text;
+      text-transform: uppercase;
+    }
+  }
+
+  &__button {
+    width: 204px;
+    height: 50px;
+
+    margin: 10 auto;
+
+    &-link {
+      color: $white-text;
+      text-decoration: none;
+      width: 144px;
+      border-radius: 5px;
+      font-family: $font-stack;
+      font-size: 15px;
+      padding-top: 16px;
+      padding-bottom: 15px;
+      display: block;
+      padding-right: 30px;
+      padding-left: 30px;
+      position: absolute;
+      z-index: 1;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+  }
+}
