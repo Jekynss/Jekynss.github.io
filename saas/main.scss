@@ -60,6 +60,11 @@
   }
 }
 
+.flex-container{
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 1560px) {
   .plans__plan {
     margin-top: 40px;

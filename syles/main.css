@@ -2,7 +2,7 @@
 .plan__buttons__section {
   display: flex;
   position: relative;
-  margin-left: 25%;
+  margin-left: 30%;
 }
 .plan__buttons__section__wrapper {
   display: flex;
@@ -62,9 +62,6 @@
 .plans__plan_first .plan__button .plan__button-link {
   background-color: #5c8cd7;
 }
-.plans__plan_first .plan__option__section {
-  margin-top: 50px;
-}
 .plans__plan_second .plan__name {
   background-color: #c5a0ef;
 }
@@ -95,7 +92,7 @@
 .plan__option__section__line {
   width: 70%;
   height: 5px;
-  margin: 20px auto;
+  margin: 30px auto 20px auto;
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
@@ -114,7 +111,7 @@
 .plan__button {
   width: 204px;
   height: 50px;
-  margin: 10 auto;
+  margin: 0 auto;
 }
 .plan__button-link {
   color: white;
@@ -185,6 +182,11 @@
 .plan__options-active__p {
   margin: 0 0;
   font-size: 15px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 1560px) {
