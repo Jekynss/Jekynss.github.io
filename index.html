@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <title>Test3</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="main__h1">todos</h1>
+      <div class="main__container">
+      <form class="search-form">
+        <div class="input-search__icon">
+            >
+        </div>
+        <input
+          type="text"
+          name="search_string"
+          class="main__container__item__input-search"
+          placeholder="Search..."
+        />
+        <input id="invisible_submit" type="submit" style="display:none"/>
+    </form>
+        <form id="options__form">
+            <ul class="main__container__item__todo-list">
+            <li class="main__container__item__todo-list__li scoped">
+                <input type="checkbox" id="checkbox-1" class="main__container__item__todo-list__li__checkbox" name="todo-list" value="Hello" />
+                <label for="checkbox-1" class="main__container__item__todo-list__li__label"></label>
+                Hello
+                <button class="main__container__item__todo-list__li__destroy"></button>
+            </li>
+            <li class="main__container__item__todo-list__li scoped">
+                <input type="checkbox" id="checkbox-2" class="main__container__item__todo-list__li__checkbox" name="todo-list" value="Word"/>
+                <label for="checkbox-2" class="main__container__item__todo-list__li__label"></label>
+                Word
+                <button class="main__container__item__todo-list__li__destroy"></button>
+            </li>
+            <li class="main__container__item__todo-list__li scoped">
+                <input type="checkbox" id="checkbox-3" class="main__container__item__todo-list__li__checkbox" name="todo-list" value="World"/>
+                <label for="checkbox-3" class="main__container__item__todo-list__li__label"></label>
+                World
+                <button class="main__container__item__todo-list__li__destroy"></button>
+            </li>
+            </ul>
+        </form>
+        <form id="addTodoForm" class="main__container__input-add">
+          <input
+            type="text"
+            class="main__container__input-add__input"
+            placeholder="What needs to be done?"
+          />
+          <button class="main__container__input-add__button">Add</button>
+        </form>
+        <div class="main__container__filters">
+            <button class="main__container__filters__filter activated" value="0">All</button>
+            <button class="main__container__filters__filter" value="1">Active</button>
+            <button class="main__container__filters__filter" value="2">Completed</button>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
