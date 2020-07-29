@@ -1,12 +1,21 @@
-let fillter=0;
+let fillter="All";
 document.addEventListener("DOMContentLoaded", function () {
+    let searchForm= document.forms['search-form'];
+    let addTodoForm = document.forms['addTodoForm'];
 
-    document.querySelector(".main__container__item__todo-list").addEventListener("click", function(event){
-        if(event.target.classList.contains('main__container__item__todo-list__li__destroy')){
+    document.querySelector(".main__container").addEventListener("click", function(event){  //delegator
+        if(event.target.classList.contains('todo-list__li__destroy')){
             event.target.parentElement.remove();
         }
-        if(event.target.classList.contains('main__container__item__todo-list__li__checkbox')){
+
+        if(event.target.classList.contains('todo-list__li__checkbox')){
             set_complited(event.target);
+        }
+
+        if(event.target.classList.contains("filters-block__filter")){
+            document.querySelectorAll(".filters-block__filter").forEach((elem)=>{elem.classList.remove('activated')})
+            event.target.classList.add('activated');
+            sort_by_status(event.target.value);
         }
     });
 
@@ -14,24 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleAll(event.target);
     });
 
-    document.querySelector(".search-form").addEventListener("submit", (event) => {
+    searchForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        search(event.target.querySelector('input').value);
+        search(searchForm.search_string.value);
     });
     
-    document.querySelector(".main__container__item__input-search").addEventListener("keyup", (event) => {
-        document.querySelector('#invisible_submit').click();
+    document.querySelector(".search_string").addEventListener("keyup", (event) => {
+        searchForm.requestSubmit();
     });
 
-    document.querySelectorAll(".main__container__filters__filter").forEach((item)=>{
-        item.addEventListener("click", (event) => {
-            document.querySelectorAll(".main__container__filters__filter").forEach((elem)=>{elem.classList.remove('activated')})
-            event.target.classList.add('activated');
-            sort_by_status(event.target.value);
-        })
-    });
-
-    document.querySelector("#addTodoForm").addEventListener('submit',(event)=>{
+    addTodoForm.addEventListener('submit',(event)=>{
         event.preventDefault();
         addTodo();
         refreshResult();
@@ -41,13 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
 function addTodo(){
     const value = document.querySelector(".main__container__input-add__input").value.replace(/[^\w\s]/gi, '');
     const list = document.createElement("li");
+    const prevLists = document.querySelectorAll('.main__container__item__todo-list__li input');
+    const idPrevCheckbox = prevLists[prevLists.length-1].id;
     list.className="main__container__item__todo-list__li";
     list.classList.add('scoped')
-    const newId = "created"+document.querySelectorAll('.main__container__item__todo-list__li').length + 1;
-    list.innerHTML = `<input type="checkbox" id="checkbox-${newId}" class="main__container__item__todo-list__li__checkbox" name="todo-list" value="${value}"/>
-    <label for="checkbox-${newId}" class="main__container__item__todo-list__li__label"></label>
+    const newId = "checkbox-"+(Number.parseInt(idPrevCheckbox.split("-")[1])+1).toString();
+    list.innerHTML = `<input type="checkbox" id="${newId}" class="todo-list__li__checkbox" name="todo-list" value="${value}"/>
+    <label for="${newId}" class="main__container__item__todo-list__li__label"></label>
     ${value}
-    <button class="main__container__item__todo-list__li__destroy"></button>`;
+    <button class="todo-list__li__destroy"></button>`;
     document.querySelector(".main__container__item__todo-list").append(list);
     document.querySelector(".main__container__input-add__input").value="";
 }
@@ -64,16 +67,16 @@ function search(search_str){
 function sort_by_status(status){
     const allTodos=document.querySelectorAll('.main__container__item__todo-list__li');
     switch (status) {
-        case "0":{
-            fillter=0;
+        case "All":{
+            fillter="All";
             allTodos.forEach((item)=>{
                 enableElement(item);
                 item.classList.add('scoped')
             })
           break;
         }
-        case "2":{
-            fillter=2;
+        case "Completed":{
+            fillter="Completed";
             allTodos.forEach((item)=>{ 
                 if (item.classList.contains('completed')){
                  item.classList.add('scoped');
@@ -86,8 +89,8 @@ function sort_by_status(status){
             })
           break;
         }
-        case "1":{
-            fillter=1;
+        case "Active":{
+            fillter="Active";
             allTodos.forEach((item)=>{ 
                 if (item.classList.contains('completed')) {
                  disableElement(item);
@@ -100,7 +103,7 @@ function sort_by_status(status){
           break;
         }
       }
-      search(document.querySelector(".main__container__item__input-search").value);
+      search(document.querySelector(".search_string").value);
 }
 
 function set_complited(element){
@@ -132,6 +135,6 @@ function toggleAll(arrow){
 }
 
 function refreshResult(){
-    search(document.querySelector(".main__container__item__input-search").value);
-    sort_by_status(fillter.toString());
+    search(document.querySelector(".search_string").value);
+    sort_by_status(fillter);
 }

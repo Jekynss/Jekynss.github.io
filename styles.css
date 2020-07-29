@@ -38,7 +38,7 @@ body{
   font-family: sans-serif;
 }
 
-.main__container__item__input-search{
+.search_string{
   height: 40px;
   border:none;
   box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03); 
@@ -71,7 +71,7 @@ body{
   font-weight: bolder;
   box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03); 
 }
-.main__container__item__todo-list__li__checkbox {
+.todo-list__li__checkbox {
   margin-right: 15px;
   visibility: hidden;
 }
@@ -101,7 +101,7 @@ body{
     width: 20px;
   }
   
-  .main__container__item__todo-list__li__checkbox:checked + label:after {
+  .todo-list__li__checkbox:checked + label:after {
     opacity: 1;
   }
   
@@ -119,14 +119,14 @@ body{
     width: 12px;
   }
 
-  .main__container__filters{
+  .filters-block{
     margin-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 
-  .main__container__item__todo-list__li__destroy{
+  .todo-list__li__destroy{
     background-color: rgba(0, 0, 0, 0);
     border:none;
     position: absolute;
@@ -140,11 +140,11 @@ body{
     cursor: pointer;
   }
 
-  .main__container__item__todo-list__li__destroy:focus{
+  .todo-list__li__destroy:focus{
     display: none;
   }
 
-  .main__container__item__todo-list__li__destroy:after{
+  .todo-list__li__destroy:after{
     content:'x';
     opacity: 1;
     position: absolute;
@@ -152,11 +152,11 @@ body{
     color: red;
   }
 
-  .main__container__item__todo-list__li__destroy:hover::after{
+  .todo-list__li__destroy:hover::after{
     color: darkred;
   }
 
-.main__container__filters__filter{
+.filters-block__filter{
   border-radius: 5px;
   padding: 2px 30px;
   color: white;
@@ -164,7 +164,7 @@ body{
   border: none;
   font-size: 15px;
 }
-.main__container__filters__filter:hover{
+.filters-block__filter:hover{
   background: rgba(10, 10, 10, 1);
   cursor: pointer;
 }
@@ -223,4 +223,8 @@ align-items: center;
 .input-search__icon:hover{
   color: grey;
   cursor: pointer;
+}
+
+.arrow-active:hover{
+cursor: pointer;
 }
