@@ -1,4 +1,5 @@
 let fillter="All";
+let allTodos;
 document.addEventListener("DOMContentLoaded", function () {
     let searchForm= document.forms['search-form'];
     let addTodoForm = document.forms['addTodoForm'];
@@ -58,7 +59,7 @@ function addTodo(){
 }
 
 function search(search_str){
-    const allTodos=document.querySelectorAll('.scoped');
+    allTodos=document.querySelectorAll('.scoped');
     allTodos.forEach((item)=>{ 
         if(new RegExp(`\^${search_str}`,"i").test(item.querySelector('input').value))
         enableElement(item);
@@ -67,13 +68,13 @@ function search(search_str){
 }
 
 function sort_by_status(status){
-    const allTodos=document.querySelectorAll('.main__container__item__todo-list__li');
-    status === "All" ?  sortAll(allTodos) : 
-    status === "Completed" ? sortCompleted(allTodos) :
-    status === "Active" ? sortActive(allTodos) : sortAll(allTodos);
+    allTodos=document.querySelectorAll('.main__container__item__todo-list__li');
+    status === "All" ?  sortAll() : 
+    status === "Completed" ? sortCompleted() :
+    status === "Active" ? sortActive() : sortAll();
 }
 
-function sortAll(allTodos) {
+function sortAll() {
   fillter = "All";
   allTodos.forEach((item) => {
     enableElement(item);
@@ -81,7 +82,7 @@ function sortAll(allTodos) {
   });
 }
 
-function sortCompleted(allTodos){
+function sortCompleted(){
     fillter="Completed";
     allTodos.forEach((item)=>{ 
         if (item.classList.contains('completed')){
@@ -95,7 +96,7 @@ function sortCompleted(allTodos){
     })
 }
 
-function sortActive(allTodos){
+function sortActive(){
     fillter="Active";
     allTodos.forEach((item)=>{ 
         if (item.classList.contains('completed')) {
@@ -138,6 +139,6 @@ function toggleAll(arrow){
 }
 
 function refreshResult(){
-    search(document.querySelector(".search_string").value);
     sort_by_status(fillter);
+    search(document.querySelector(".search_string").value);
 }
