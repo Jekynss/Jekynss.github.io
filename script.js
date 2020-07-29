@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".filters-block__filter").forEach((elem)=>{elem.classList.remove('activated')})
             event.target.classList.add('activated');
             sort_by_status(event.target.value);
+            search(document.querySelector(".search_string").value);
+
         }
     });
 
@@ -40,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addTodo(){
-    const value = document.querySelector(".main__container__input-add__input").value.replace(/[^\w\s]/gi, '');
+    const value = addTodoForm.add_string_input.value.replace(/[^\w\s]/gi, '');
     const list = document.createElement("li");
     const prevLists = document.querySelectorAll('.main__container__item__todo-list__li input');
     const idPrevCheckbox = prevLists[prevLists.length-1].id;
     list.className="main__container__item__todo-list__li";
-    list.classList.add('scoped')
+    list.classList.add('scoped');
     const newId = "checkbox-"+(Number.parseInt(idPrevCheckbox.split("-")[1])+1).toString();
     list.innerHTML = `<input type="checkbox" id="${newId}" class="todo-list__li__checkbox" name="todo-list" value="${value}"/>
     <label for="${newId}" class="main__container__item__todo-list__li__label"></label>
@@ -66,48 +68,49 @@ function search(search_str){
 
 function sort_by_status(status){
     const allTodos=document.querySelectorAll('.main__container__item__todo-list__li');
-    switch (status) {
-        case "All":{
-            fillter="All";
-            allTodos.forEach((item)=>{
-                enableElement(item);
-                item.classList.add('scoped')
-            })
-          break;
+    status === "All" ?  sortAll(allTodos) : 
+    status === "Completed" ? sortCompleted(allTodos) :
+    status === "Active" ? sortActive(allTodos) : sortAll(allTodos);
+}
+
+function sortAll(allTodos) {
+  fillter = "All";
+  allTodos.forEach((item) => {
+    enableElement(item);
+    item.classList.add("scoped");
+  });
+}
+
+function sortCompleted(allTodos){
+    fillter="Completed";
+    allTodos.forEach((item)=>{ 
+        if (item.classList.contains('completed')){
+         item.classList.add('scoped');
+         enableElement(item);
         }
-        case "Completed":{
-            fillter="Completed";
-            allTodos.forEach((item)=>{ 
-                if (item.classList.contains('completed')){
-                 item.classList.add('scoped');
-                 enableElement(item);
-                }
-                 else {
-                 disableElement(item);
-                 item.classList.remove('scoped');
-                }
-            })
-          break;
+         else {
+         disableElement(item);
+         item.classList.remove('scoped');
         }
-        case "Active":{
-            fillter="Active";
-            allTodos.forEach((item)=>{ 
-                if (item.classList.contains('completed')) {
-                 disableElement(item);
-                 item.classList.remove('scoped')
-                }
-                 else {
-                 enableElement(item);
-                 item.classList.add('scoped');}
-            })
-          break;
+    })
+}
+
+function sortActive(allTodos){
+    fillter="Active";
+    allTodos.forEach((item)=>{ 
+        if (item.classList.contains('completed')) {
+         disableElement(item);
+         item.classList.remove('scoped')
         }
-      }
-      search(document.querySelector(".search_string").value);
+         else {
+         enableElement(item);
+         item.classList.add('scoped');}
+    })
 }
 
 function set_complited(element){
     element.parentElement.classList.toggle('completed');
+    refreshResult();
 }
 
 function enableElement(elem){
