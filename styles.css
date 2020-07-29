@@ -75,6 +75,7 @@ body{
   margin-right: 15px;
   visibility: hidden;
 }
+
 .main__container__item__todo-list__li{
     position:relative;
     margin-bottom: 20px;

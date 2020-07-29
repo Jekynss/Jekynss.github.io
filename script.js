@@ -52,16 +52,17 @@ function addTodo(){
     const newId = "checkbox-"+(Number.parseInt(idPrevCheckbox.split("-")[1])+1).toString();
     list.innerHTML = `<input type="checkbox" id="${newId}" class="todo-list__li__checkbox" name="todo-list" value="${value}"/>
     <label for="${newId}" class="main__container__item__todo-list__li__label"></label>
-    ${value}
-    <button class="todo-list__li__destroy"></button>`;
+    ${value}<button class="todo-list__li__destroy"></button>`;
     document.querySelector(".main__container__item__todo-list").append(list);
     document.querySelector(".main__container__input-add__input").value="";
 }
 
 function search(search_str){
     allTodos=document.querySelectorAll('.scoped');
-    allTodos.forEach((item)=>{ 
-        if(new RegExp(`\^${search_str}`,"i").test(item.querySelector('input').value))
+    search_str = search_str.toLowerCase();
+    allTodos.forEach((item)=>{
+        const TodoValue = item.querySelector('input').value.toLowerCase();
+        if(TodoValue.includes(search_str))
         enableElement(item);
         else 
         disableElement(item);})
@@ -115,27 +116,31 @@ function set_complited(element){
 }
 
 function enableElement(elem){
-    elem.classList.remove('disabled')
-    elem.classList.add('enabled')
+    elem.classList.remove('disabled');
 }
 
 function disableElement(elem){
-    elem.classList.add('disabled')
-    elem.classList.remove('enabled')
+    elem.classList.add('disabled');
 }
 
-function toggleAll(arrow){
-    const allTodosChecks=document.querySelectorAll('.main__container__item__todo-list__li');
-    if (arrow.classList.contains('arrow-active')){
-        allTodosChecks.forEach((elem)=>{elem.classList.remove('completed'); elem.querySelector('input').checked=false});
-        arrow.className="input-search__icon"
-    }
-    else
-    {
-        allTodosChecks.forEach((elem)=>{elem.classList.add('completed');elem.querySelector('input').checked=true});
-        arrow.className="arrow-active"
-    }
-    refreshResult();
+function toggleAll(arrow) {
+  const allTodosChecks = document.querySelectorAll(
+    ".main__container__item__todo-list__li"
+  );
+  if (arrow.classList.contains("arrow-active")) {
+    allTodosChecks.forEach((elem) => {
+      elem.classList.remove("completed");
+      elem.querySelector("input").checked = false;
+    });
+    arrow.className = "input-search__icon";
+  } else {
+    allTodosChecks.forEach((elem) => {
+      elem.classList.add("completed");
+      elem.querySelector("input").checked = true;
+    });
+    arrow.className = "arrow-active";
+  }
+  refreshResult();
 }
 
 function refreshResult(){
